@@ -9,8 +9,11 @@ import { ChartDuotone, QuestionCircle } from '@/icons';
 import { useGameStore, useModalStore } from '@/store';
 import { getWords } from '@/actions';
 import { getRandomWord } from '@/utils/getRandomWord';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../../i18n';
 
 export const Header = () => {
+    const { t } = useTranslation();
     const onOpenModal = useModalStore((state) => state.openModal);
     const viewModal = useModalStore((state) => state.view);
     const isOpenModal = useModalStore((state) => state.open);
@@ -31,7 +34,9 @@ export const Header = () => {
                     <button onClick={() => onOpenModal('instructions')}>
                         <QuestionCircle className='stroke-secondary' />
                     </button>
-                    <Title title='WORDLE' className='font-semibold text-4xl' />
+                    <Title title={t('wordle')} className='font-semibold text-4xl' />
+                    <button onClick={() => i18n.changeLanguage('es')}>ES</button>
+                    <button onClick={() => i18n.changeLanguage('en')}>EN</button>
                     <div className='flex items-center'>
                         <button onClick={() => onOpenModal('statistics')}>
                             <ChartDuotone />
