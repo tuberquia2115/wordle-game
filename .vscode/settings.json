@@ -6,5 +6,8 @@
     "prettier.quoteProps": "as-needed",
     "prettier.printWidth": 100,
     "prettier.jsxSingleQuote": true,
-    "prettier.arrowParens": "always"
+    "prettier.arrowParens": "always",
+    "cSpell.words": [
+        "Wordle"
+    ]
 }

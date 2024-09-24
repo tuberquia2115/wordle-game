@@ -1,2 +1,1 @@
-export * from './keys'
-export * from './switch-theme-duration'
+export * from './keyboard-letters';

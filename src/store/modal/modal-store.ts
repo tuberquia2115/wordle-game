@@ -7,11 +7,9 @@ interface State {
     closeModal(): void;
 }
 
-
 export const useModalStore = create<State>()((set) => ({
     open: false,
-    view: '',
+    view: 'instructions',
     openModal: (view: string) => set({ open: true, view }),
-    closeModal: () => set({ open: false })
-}))
-
+    closeModal: () => set({ open: false }),
+}));

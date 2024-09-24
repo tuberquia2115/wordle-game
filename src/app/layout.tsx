@@ -1,29 +1,19 @@
 import type { Metadata } from 'next';
+import { PropsWithChildren } from 'react';
 
 import { roboto } from '@/config/fonts';
-import { switchThemeDuration } from '@/constants/switch-theme-duration';
-import { Providers } from '@/components/providers/Providers';
+import { Providers } from '@/components/providers/providers';
 import './globals.css';
 
 export const metadata: Metadata = {
-    title: 'Game WORDLE',
-    description: 'Game WORDLE',
+    title: 'Wordle Game',
+    description: 'Word games, find the secret word with 5 attempts',
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang='en'>
-            <body
-                className={`${roboto.className} 
-          bg-background-light 
-          dark:bg-background-dark 
-          transition-all
-          ${switchThemeDuration}`}
-            >
+            <body className={roboto.className}>
                 <Providers>{children}</Providers>
             </body>
         </html>

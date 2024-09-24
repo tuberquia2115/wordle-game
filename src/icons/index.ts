@@ -1,2 +1,2 @@
-export * from './QuestionCircle'
-export * from './ChartDuotone'
+export * from './question-circle';
+export * from './chart-duotone';
