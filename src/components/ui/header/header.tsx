@@ -1,7 +1,8 @@
 'use client';
+
+import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 
-import i18n from '@/i18n';
 import { Title } from '../title/title';
 import { useModalStore } from '@/store';
 import { ThemeSwitcher } from '../theme-switch/theme-swicher';

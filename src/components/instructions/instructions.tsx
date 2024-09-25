@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
 import { Title, Button, Square } from '@/components/ui';
@@ -9,6 +10,7 @@ export const Instructions = () => {
     const { closeModal } = useModalStore((state) => state);
     const { onChangeStatusEnteredGameBefore } = useGameStore((state) => state);
     const { startTimer } = useTimeWord((state) => state);
+    const { t } = useTranslation();
 
     const onGameStart = () => {
         startTimer();
@@ -18,18 +20,22 @@ export const Instructions = () => {
 
     return (
         <div className='pb-6 pt-5'>
-            <Title title='Cómo jugar' className='text-3xl font-extrabold text-center pb-6' />
+            <Title
+                title={t('instructions.title')}
+                className='text-3xl font-extrabold text-center pb-6'
+            />
             <p className='text-lg font-normal fon leading-[45px]'>
-                Adivina la palabra oculta en cinco intentos.
+                {t('instructions.description.paragraph_1')}
             </p>
             <p className='text-lg font-normal fon leading-[45px]'>
-                Cada intento debe ser una palabra válida de 5 letras.
+                {t('instructions.description.paragraph_2')}
             </p>
             <p className='text-lg font-normal fon leading-6'>
-                Después de cada intento el color de las letras cambia para mostrar qué tan cerca
-                estás de acertar la palabra.
+                {t('instructions.description.paragraph_3')}
             </p>
-            <h3 className='text-xl font-bold pt-4 pb-6'>Ejemplos</h3>
+            <h3 className='text-xl font-bold pt-4 pb-6'>
+                {t('instructions.section_examples.title')}
+            </h3>
             <div className='flex justify-around'>
                 {['g', 'a', 't', 'o', 's'].map((letter) => (
                     <Square
@@ -40,9 +46,14 @@ export const Instructions = () => {
                     />
                 ))}
             </div>
-            <p className='text-lg font-normal py-5'>
-                La letra <strong>G</strong> está en la palabra y en la posición correcta.
-            </p>
+
+            <div
+                className='text-lg font-normal py-5'
+                dangerouslySetInnerHTML={{
+                    __html: t('instructions.section_examples.example_1'),
+                }}
+            />
+
             <div className='flex justify-around'>
                 {['v', 'o', 'c', 'a', 'l'].map((letter) => (
                     <Square
@@ -53,10 +64,13 @@ export const Instructions = () => {
                     />
                 ))}
             </div>
+            <div
+                className='font-normal py-5 text-lg'
+                dangerouslySetInnerHTML={{
+                    __html: t('instructions.section_examples.example_2'),
+                }}
+            />
 
-            <p className=' font-normal py-5 text-lg'>
-                La letra <strong>C</strong> está en la palabra pero en la posición incorrecta.
-            </p>
             <div className='flex justify-around'>
                 {['c', 'a', 'n', 't', 'o'].map((letter) => (
                     <Square
@@ -68,19 +82,20 @@ export const Instructions = () => {
                 ))}
             </div>
 
-            <p className='font-normal text-lg pt-4 pb-5'>
-                La letra <strong>O</strong> no está en la palabra.
-            </p>
+            <div
+                className='font-normal text-lg pt-4 pb-5'
+                dangerouslySetInnerHTML={{
+                    __html: t('instructions.section_examples.example_3'),
+                }}
+            />
 
-            <p className='text-lg font-normal'>
-                Puede haber letras repetidas. Las pistas son independientes para cada letra.
-            </p>
+            <p className='text-lg font-normal'>{t('instructions.description.paragraph_4')}</p>
 
             <p className='py-4 text-lg font-normal text-center'>
-                ¡Una palabra nueva cada 5 minutos!
+                {t('instructions.description.paragraph_5')}
             </p>
 
-            <Button label='!JUGAR¡' onClick={() => onGameStart()} />
+            <Button label={t('play')} onClick={() => onGameStart()} />
         </div>
     );
 };

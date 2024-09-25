@@ -5,3 +5,8 @@
 body {
     @apply font-sans bg-background-light dark:bg-background-dark transition-all duration-500;
 }
+
+html:root,
+[data-theme] {
+    background-color: #efefef;
+}

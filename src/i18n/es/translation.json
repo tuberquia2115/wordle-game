@@ -1,0 +1,28 @@
+{
+    "wordle": "Juego de palabras 🎮",
+    "play": "Jugar",
+    "accept": "Aceptar",
+    "instructions": {
+        "title": "Cómo jugar",
+        "description": {
+            "paragraph_1": "Adivina la palabra oculta en cinco intentos.",
+            "paragraph_2": "Cada intento debe ser una palabra válida de 5 letras.",
+            "paragraph_3": "Después de cada intento el color de las letras cambia para mostrar qué tan cerca estás de acertar la palabra.",
+            "paragraph_4": "Puede haber letras repetidas. Las pistas son independientes para cada letra.",
+            "paragraph_5": "¡Una palabra nueva cada 5 minutos!"
+        },
+        "section_examples": {
+            "title": "Ejemplos",
+            "example_1": "<p>La letra <strong>G</strong> está en la palabra y en la posición correcta.</p>",
+            "example_2": "<p>La letra <strong>C</strong> está en la palabra pero en la posición incorrecta.</p>",
+            "example_3": "<p>La letra <strong>O</strong> no está en la palabra.</p>"
+        }
+    },
+    "statistics": {
+        "title": "Estadísticas",
+        "plays": "Jugadas",
+        "victories": "Victorias",
+        "next_word": "Siguiente palabra en",
+        "word_was": "La palabra era"
+    }
+}
