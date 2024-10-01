@@ -1,1 +1,1 @@
-export * from './wordle-board';
+export { default as WordleBoard } from './wordle-board';

@@ -1,0 +1,28 @@
+{
+    "wordle": "Wordle Game 🎮",
+    "play": "Play!",
+    "Accept": "Accept",
+    "instructions": {
+        "title": "How to play",
+        "description": {
+            "paragraph_1": "Guess the hidden word in five attempts.",
+            "paragraph_2": "Each attempt must be a valid 5-letter word.",
+            "paragraph_3": "After each attempt the color of the letters changes to show how close you are to guessing the word.",
+            "paragraph_4": "There may be repeated letters. The clues are independent for each letter.",
+            "paragraph_5": "A new word every 5 minutes!"
+        },
+        "section_examples": {
+            "title": "Examples",
+            "example_1": "<p>The letter <strong>G</strong> is in the correct word and position.</p>",
+            "example_2": "<p>The letter <strong>C</strong> is in the word but in the wrong position.</p>",
+            "example_3": "<p>The letter <strong>O</strong> is not in the word.</p>"
+        }
+    },
+    "statistics": {
+        "title": "Statistics",
+        "plays": "Plays",
+        "victories": "Victories",
+        "next_word": "Next word in",
+        "word_was": "The word was"
+    }
+}
