@@ -9,9 +9,7 @@ const Header = React.lazy(() => import('@/components/header/header'));
 const WordleBoard = React.lazy(() => import('@/components/wordle-board/wordle-board'));
 
 export default function Home() {
-    const { setWords, onSelectedRandomWord, words } = useGameStore((state) => state);
-
-    const isEmptyWords = words.length === 0;
+    const { setWords, onSelectedRandomWord } = useGameStore((state) => state);
 
     const renderLoading = () => (
         <div className='flex h-screen justify-center items-center'>
@@ -21,6 +19,7 @@ export default function Home() {
 
     const handleFetchWords = async () => {
         const { words = [], ok } = await getWords();
+        console.log('words response', words);
         if (ok) {
             setWords(words);
             onSelectedRandomWord();
@@ -28,7 +27,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-        isEmptyWords && handleFetchWords();
+        handleFetchWords();
     }, []);
 
     return (
