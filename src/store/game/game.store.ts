@@ -1,29 +1,30 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+//FEATURE: Agregar statados, para pausar el timer, y saber si el tablero esta completo.
 interface State {
-    words: string[];
-    secretWord: string[];
+    isRoundCompleted: boolean;
     plays: number;
+    secretWord: string[];
     victories: number;
-    hasEnteredGameBefore: boolean;
-    onChangeStatusEnteredGameBefore(): void;
+    words: string[];
     onIncreasePlays(): void;
     onIncreaseVictories(): void;
+    onSelectedRandomWord(): void;
+    setIsRoundCompleted(value: boolean): void;
     setWords(words: string[]): void;
-    setSecretWord(word: string[]): void;
 }
 
 export const useGameStore = create<State>()(
     persist(
         (set, get) => ({
-            words: [],
-            secretWord: [],
+            isRoundCompleted: false,
             plays: 0,
+            secretWord: [],
             victories: 0,
-            hasEnteredGameBefore: false,
+            words: [],
+            setIsRoundCompleted: (value: boolean) => set({ isRoundCompleted: value }),
             setWords: (words: string[]) => set({ words }),
-            setSecretWord: (word: string[]) => set({ secretWord: word }),
             onIncreasePlays: () => {
                 const { plays } = get();
                 set({ plays: plays + 1 });
@@ -32,8 +33,11 @@ export const useGameStore = create<State>()(
                 const { victories } = get();
                 set({ victories: victories + 1 });
             },
-            onChangeStatusEnteredGameBefore: () => {
-                set({ hasEnteredGameBefore: true });
+            onSelectedRandomWord: () => {
+                const { words } = get();
+                const randomIndex = Math.floor(Math.random() * words.length);
+                const selectedSecretWord = words[randomIndex].split('');
+                set({ secretWord: selectedSecretWord });
             },
         }),
         { name: 'wordle-game' }

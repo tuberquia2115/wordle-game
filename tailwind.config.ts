@@ -37,7 +37,7 @@ const config: Config = {
                     50: '#ffffff',
                     100: '#f3f3f3e3',
                 },
-                greenn: {
+                green: {
                     600: '#6AAA64',
                     650: '#66A060',
                 },

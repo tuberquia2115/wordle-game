@@ -1,15 +1,16 @@
 import { create } from 'zustand';
 
+type ComponentType = 'instructions' | 'statistics';
 interface State {
     open: boolean;
-    view: string;
-    openModal(view: string): void;
+    componentType: ComponentType | null;
+    openModal(componentType?: ComponentType): void;
     closeModal(): void;
 }
 
 export const useModalStore = create<State>()((set) => ({
     open: false,
-    view: 'instructions',
-    openModal: (view: string) => set({ open: true, view }),
+    componentType: null,
+    openModal: (componentType: ComponentType) => set({ open: true, componentType }),
     closeModal: () => set({ open: false }),
 }));

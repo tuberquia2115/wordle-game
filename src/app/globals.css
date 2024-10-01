@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply font-sans bg-background-light dark:bg-background-dark transition-all duration-500;
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
 }
 
-html:root,
-[data-theme] {
-    background-color: #efefef;
+body {
+    @apply font-sans bg-background-light dark:bg-background-dark transition-all duration-500 h-screen;
 }

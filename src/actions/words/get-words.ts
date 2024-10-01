@@ -21,9 +21,9 @@ export async function getWords() {
             words,
         };
     } catch (error) {
-        console.log(error);
         return {
             ok: false,
+            words: [],
         };
     }
 }
