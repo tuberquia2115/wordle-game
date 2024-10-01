@@ -1,6 +1,7 @@
 export const getBgColorSquare = (letter: string, indexLetter: number, secretWord: string[]) => {
+    console.log('getBgColorSquare', { secretWord, letter });
     const letterMatched = Array(secretWord.length).fill(false);
-    const indexLetterToWord = secretWord.findIndex(
+    const indexLetterToWord = secretWord?.findIndex?.(
         (item, i) => item === letter && !letterMatched[i]
     );
 
